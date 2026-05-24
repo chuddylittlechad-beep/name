@@ -14,29 +14,29 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 const orders = new Map();
 
 const leaderboard = [
-  { player: 'PixelPirate', amount: 489.55, rank: 'Ender Founder', avatar: 'PixelPirate' },
-  { player: 'CraftQueen', amount: 312.10, rank: 'Netherite', avatar: 'CraftQueen' },
-  { player: 'ObsidianOwl', amount: 264.40, rank: 'Netherite', avatar: 'ObsidianOwl' },
-  { player: 'RedstoneRay', amount: 198.75, rank: 'Emerald', avatar: 'RedstoneRay' },
-  { player: 'BlazeBuilder', amount: 154.99, rank: 'Emerald', avatar: 'BlazeBuilder' },
-  { player: 'MossyMage', amount: 124.50, rank: 'Diamond', avatar: 'MossyMage' },
-  { player: 'CocoaCreeper', amount: 99.80, rank: 'Diamond', avatar: 'CocoaCreeper' },
-  { player: 'AmethystAria', amount: 79.95, rank: 'Gold', avatar: 'AmethystAria' },
+  { player: 'PixelPirate', amount: 489.55, rank: 'Эндер-Основатель', avatar: 'PixelPirate' },
+  { player: 'CraftQueen', amount: 312.10, rank: 'Незерит', avatar: 'CraftQueen' },
+  { player: 'ObsidianOwl', amount: 264.40, rank: 'Незерит', avatar: 'ObsidianOwl' },
+  { player: 'RedstoneRay', amount: 198.75, rank: 'Изумруд', avatar: 'RedstoneRay' },
+  { player: 'BlazeBuilder', amount: 154.99, rank: 'Изумруд', avatar: 'BlazeBuilder' },
+  { player: 'MossyMage', amount: 124.50, rank: 'Алмаз', avatar: 'MossyMage' },
+  { player: 'CocoaCreeper', amount: 99.80, rank: 'Алмаз', avatar: 'CocoaCreeper' },
+  { player: 'AmethystAria', amount: 79.95, rank: 'Золото', avatar: 'AmethystAria' },
 ];
 
 const recentPurchases = [
-  { player: 'GlowSquid', item: 'Diamond Rank', minutesAgo: 2 },
-  { player: 'TundraTess', item: 'Adventurer Crate', minutesAgo: 6 },
-  { player: 'WitherWill', item: 'Emerald Rank', minutesAgo: 11 },
-  { player: 'PistonPete', item: 'Knight Crate ×3', minutesAgo: 14 },
-  { player: 'NetherNyx', item: 'Netherite Rank', minutesAgo: 22 },
-  { player: 'SlimeSage', item: 'Iron Rank', minutesAgo: 28 },
+  { player: 'GlowSquid', item: 'ранг Алмаз', minutesAgo: 2 },
+  { player: 'TundraTess', item: 'Кейс Искателя', minutesAgo: 6 },
+  { player: 'WitherWill', item: 'ранг Изумруд', minutesAgo: 11 },
+  { player: 'PistonPete', item: 'Кейс Рыцаря ×3', minutesAgo: 14 },
+  { player: 'NetherNyx', item: 'ранг Незерит', minutesAgo: 22 },
+  { player: 'SlimeSage', item: 'ранг Железо', minutesAgo: 28 },
 ];
 
 const serverStatus = {
   host: 'play.emeraldcraft.gg',
   version: '1.21.4',
-  edition: 'Java & Bedrock',
+  edition: 'Java и Bedrock',
   online: true,
   playersOnline: 387,
   playersMax: 1000,
@@ -80,14 +80,14 @@ app.post('/api/checkout', (req, res) => {
 
   if (!isValidUsername(username)) {
     return res.status(400).json({
-      error: 'Enter a valid Minecraft username (3-16 chars, letters/numbers/underscore).',
+      error: 'Введите корректный ник Minecraft (3–16 символов: буквы, цифры, нижнее подчёркивание).',
     });
   }
   if (!isValidEmail(email)) {
-    return res.status(400).json({ error: 'Enter a valid email address.' });
+    return res.status(400).json({ error: 'Введите корректный email.' });
   }
   if (!Array.isArray(items) || items.length === 0) {
-    return res.status(400).json({ error: 'Cart is empty.' });
+    return res.status(400).json({ error: 'Корзина пуста.' });
   }
 
   const known = new Map(
@@ -99,7 +99,7 @@ app.post('/api/checkout', (req, res) => {
   for (const entry of items) {
     const item = known.get(entry?.id);
     if (!item) {
-      return res.status(400).json({ error: `Unknown item: ${entry?.id}` });
+      return res.status(400).json({ error: `Неизвестный товар: ${entry?.id}` });
     }
     const qty = Math.min(Math.max(parseInt(entry.qty, 10) || 1, 1), 10);
     total += item.price * qty;
@@ -123,13 +123,13 @@ app.post('/api/checkout', (req, res) => {
     success: true,
     orderId: order.id,
     total: order.total,
-    message: `Thanks ${username}! Your perks will land in-game within 60 seconds.`,
+    message: `Спасибо, ${username}! Твои привилегии активируются в игре в течение 60 секунд.`,
   });
 });
 
 app.get('/api/order/:id', (req, res) => {
   const order = orders.get(req.params.id);
-  if (!order) return res.status(404).json({ error: 'Order not found' });
+  if (!order) return res.status(404).json({ error: 'Заказ не найден' });
   res.json(order);
 });
 

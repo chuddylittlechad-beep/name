@@ -8,7 +8,7 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const fmt = (n) =>
-    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+    new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'USD' }).format(n);
 
   // --- State -----------------------------------------------------
   const state = {
@@ -50,7 +50,7 @@
     const r = await fetch(url, options);
     if (!r.ok) {
       const body = await r.json().catch(() => ({}));
-      throw new Error(body.error || `Request failed (${r.status})`);
+      throw new Error(body.error || `Ошибка запроса (${r.status})`);
     }
     return r.json();
   }
@@ -76,7 +76,7 @@
       );
     } catch (e) {
       $('#packagesGrid').innerHTML =
-        '<div class="packages-loading">Couldn\'t load ranks. Refresh to try again.</div>';
+        '<div class="packages-loading">Не удалось загрузить ранги. Обнови страницу и попробуй снова.</div>';
       console.error(e);
     }
   }
@@ -134,8 +134,8 @@
             ${p.player.slice(0, 1)}
           </span>
           <span class="recent-meta">
-            <strong>${escapeHtml(p.player)}</strong> bought ${escapeHtml(p.item)}
-            <div class="recent-time">${p.minutesAgo} min ago</div>
+            <strong>${escapeHtml(p.player)}</strong> купил ${escapeHtml(p.item)}
+            <div class="recent-time">${p.minutesAgo} мин. назад</div>
           </span>
         </li>
       `,
@@ -176,7 +176,7 @@
         return `
           <article class="pack ${p.popular ? 'popular' : ''}"
                    style="--pack-color:${p.color}; --pack-glow:${glow};">
-            ${p.popular ? '<span class="pack-popular-badge">Most popular</span>' : ''}
+            ${p.popular ? '<span class="pack-popular-badge">Самый популярный</span>' : ''}
             <div class="pack-icon"><svg><use href="${iconHref(p.icon)}"/></svg></div>
             <div class="pack-head">
               <span class="pack-tier">${p.tier}</span>
@@ -185,7 +185,7 @@
             </div>
             <div class="pack-price">
               <strong>${fmt(p.price)}</strong>
-              <span>one-time</span>
+              <span>разовый платёж</span>
             </div>
             <ul class="pack-features">
               ${p.features
@@ -201,7 +201,7 @@
             </ul>
             <button class="pack-cta" data-add="${p.id}">
               <svg width="16" height="16"><use href="#i-cart"/></svg>
-              Add to cart
+              В корзину
             </button>
           </article>
         `;
@@ -228,7 +228,7 @@
         </div>
         <div class="crate-action">
           <span class="crate-price">${fmt(c.price)}</span>
-          <button class="crate-add" data-add="${c.id}">Add to cart</button>
+          <button class="crate-add" data-add="${c.id}">В корзину</button>
         </div>
       </article>
     `,
@@ -259,7 +259,7 @@
     }
     saveCart();
     renderCart();
-    showToast(`${item.name} added to cart`);
+    showToast(`«${item.name}» добавлен в корзину`);
     bumpCartButton();
   }
 
@@ -320,17 +320,17 @@
               </span>
               <div class="cart-item-info">
                 <div class="cart-item-name">${escapeHtml(item.name)}</div>
-                <div class="cart-item-price">${fmt(item.price)} each</div>
+                <div class="cart-item-price">${fmt(item.price)} за шт.</div>
               </div>
               <div class="cart-qty">
-                <button data-dec aria-label="Decrease">
+                <button data-dec aria-label="Уменьшить">
                   <svg width="14" height="14"><use href="#i-minus"/></svg>
                 </button>
                 <span>${line.qty}</span>
-                <button data-inc aria-label="Increase">
+                <button data-inc aria-label="Увеличить">
                   <svg width="14" height="14"><use href="#i-plus"/></svg>
                 </button>
-                <button data-remove aria-label="Remove" title="Remove">
+                <button data-remove aria-label="Удалить" title="Удалить">
                   <svg width="14" height="14"><use href="#i-close"/></svg>
                 </button>
               </div>
@@ -408,7 +408,7 @@
                   <span>${fmt(item.price * line.qty)}</span></div>`;
         })
         .join('') +
-      `<div class="line total"><span>Total</span><strong>${fmt(cartTotal())}</strong></div>`;
+      `<div class="line total"><span>Итого</span><strong>${fmt(cartTotal())}</strong></div>`;
     modalTotal.textContent = fmt(cartTotal());
   }
 
@@ -427,7 +427,7 @@
     const submitBtn = checkoutForm.querySelector('button[type="submit"]');
     const original = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Processing…';
+    submitBtn.innerHTML = 'Обработка…';
 
     try {
       const result = await jsonFetch('/api/checkout', {
@@ -459,8 +459,8 @@
     if (!btn) return;
     const text = btn.dataset.copy;
     navigator.clipboard.writeText(text).then(
-      () => showToast(`Copied ${text}`),
-      () => showToast('Couldn\'t copy — please copy manually'),
+      () => showToast(`Скопировано: ${text}`),
+      () => showToast('Не удалось скопировать — скопируй вручную'),
     );
   });
 
