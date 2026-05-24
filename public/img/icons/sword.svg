@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="sw-blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f0ff"/>
+      <stop offset="1" stop-color="#9fb8d8"/>
+    </linearGradient>
+  </defs>
+  <g stroke="#0a1a14" stroke-width="2" stroke-linejoin="round">
+    <path d="M44 6h12v12L24 50l-6-6z" fill="url(#sw-blade)"/>
+    <path d="M14 44l6 6-6 6h-6v-6z" fill="#5b3a1a"/>
+    <path d="M18 40h8v8h-8z" fill="#f5b342" transform="rotate(45 22 44)"/>
+  </g>
+  <path d="M46 8h6v6h-6z" fill="#ffffff" opacity=".5"/>
+</svg>
