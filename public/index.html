@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EmeraldCraft — the friendliest Minecraft network. Support the server, unlock ranks, cosmetics, and crates." />
+  <title>EmeraldCraft — Donation Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/img/icons/emerald.svg" />
+</head>
+<body>
+
+<!-- Inline SVG sprite. Keeps icon markup short throughout the page. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-pickaxe" viewBox="0 0 24 24">
+    <path d="M2 6h3V4h3V2h4v2h3v2h3v3h-3v2h-3V8h-4v3H8V9H5V6z" fill="currentColor"/>
+    <path d="M12 10l8 11-3 3-9-11z" fill="currentColor" opacity=".75"/>
+  </symbol>
+  <symbol id="i-sword" viewBox="0 0 24 24">
+    <path d="M16 2h6v6L9 21l-3-3z" fill="currentColor"/>
+    <path d="M5 16l3 3-3 3H2v-3z" fill="currentColor" opacity=".8"/>
+  </symbol>
+  <symbol id="i-diamond" viewBox="0 0 24 24">
+    <path d="M6 4h12l3 4.5L12 22 3 8.5z" fill="currentColor"/>
+    <path d="M3 8.5h18" stroke="rgba(0,0,0,.35)" stroke-width="1.4"/>
+  </symbol>
+  <symbol id="i-emerald" viewBox="0 0 24 24">
+    <path d="M5 7l4-4h6l4 4v10l-4 4H9l-4-4z" fill="currentColor"/>
+    <path d="M9 7l-1.5 4L9 17h6l1.5-6L15 7z" fill="rgba(0,0,0,.25)"/>
+  </symbol>
+  <symbol id="i-chest" viewBox="0 0 24 24">
+    <path d="M3 8h18v4H3z" fill="currentColor"/>
+    <path d="M3 12h18v9H3z" fill="currentColor" opacity=".85"/>
+    <circle cx="12" cy="14" r="1.4" fill="rgba(0,0,0,.5)"/>
+  </symbol>
+  <symbol id="i-creeper" viewBox="0 0 24 24">
+    <path d="M4 3h16v18H4z" fill="currentColor"/>
+    <path d="M7 7h3v3H7zM14 7h3v3h-3zM10 11h4v3h-4zM8 14h3v4H8zM13 14h3v4h-3z" fill="rgba(0,0,0,.65)"/>
+  </symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24">
+    <path d="M2 8l4 4 6-8 6 8 4-4v10H2z" fill="currentColor"/>
+    <path d="M2 18h20v2H2z" fill="currentColor" opacity=".75"/>
+  </symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24">
+    <path d="M13 2L4 14h6l-1 8 9-12h-6z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24">
+    <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24">
+    <path d="M20 4c-9 0-16 5-16 13a3 3 0 003 3c8 0 13-7 13-16z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-discord" viewBox="0 0 24 24">
+    <path d="M20 5c-1.7-.8-3.6-1.4-5.5-1.6l-.3.5c1.7.3 3.3.9 4.7 1.7-1.8-1-3.7-1.6-5.9-1.6S8.9 4.5 7 5.5c1.4-.8 3-1.4 4.7-1.7l-.3-.5C9.6 3.6 7.7 4.2 6 5 2.7 9 1.7 13.4 2 18c1.8 1.6 4 2.6 6.3 2.7l.6-.9c-1.2-.4-2.3-1-3.3-1.8.3.2.6.3.9.5 2.6 1.2 5.4 1.5 8 .9 1.1-.3 2.2-.7 3.2-1.4-1 .8-2.2 1.4-3.4 1.8l.6.9c2.3-.1 4.5-1.1 6.3-2.7.4-5.2-1-9.6-3.2-13zm-11 11c-1.2 0-2.2-1.1-2.2-2.5S7.7 11 9 11s2.2 1.1 2.2 2.5S10.2 16 9 16zm6 0c-1.2 0-2.2-1.1-2.2-2.5S13.7 11 15 11s2.2 1.1 2.2 2.5S16.2 16 15 16z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24">
+    <path d="M9 2h10v14H9z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M5 6h10v14H5z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24">
+    <path d="M2 4h3l3 12h11l2-8H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="9" cy="20" r="2" fill="currentColor"/>
+    <circle cx="18" cy="20" r="2" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <path d="M4 12l5 5 11-12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24">
+    <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24">
+    <path d="M4 12h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24">
+    <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 24 24">
+    <rect x="2" y="5" width="20" height="14" rx="2" fill="currentColor"/>
+    <path d="M2 10h20" stroke="rgba(0,0,0,.4)" stroke-width="2"/>
+  </symbol>
+  <symbol id="i-paypal" viewBox="0 0 24 24">
+    <path d="M7 4h7c3 0 5 2 4 5-1 3-3 4-6 4H9l-1 7H4z" fill="currentColor"/>
+    <path d="M10 8h5c2 0 3 1 2 3-1 2-2 3-4 3h-3" fill="rgba(0,0,0,.35)"/>
+  </symbol>
+  <symbol id="i-crypto" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="currentColor"/>
+    <path d="M9 7v10M9 7h4c1.5 0 2.5 1 2.5 2.5S14.5 12 13 12H9M9 12h5c1.5 0 2.5 1 2.5 2.5S15.5 17 14 17H9M11 5v3M11 16v3" stroke="rgba(0,0,0,.55)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-help" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M9 9c0-2 1.5-3 3-3s3 1 3 3-3 2-3 4M12 17v.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<!-- Animated pixel-block background ============================= -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-floats" aria-hidden="true">
+  <span style="--x:10%;--d:18s;--s:.7"></span>
+  <span style="--x:24%;--d:22s;--s:1.1"></span>
+  <span style="--x:38%;--d:16s;--s:.9"></span>
+  <span style="--x:55%;--d:24s;--s:1.3"></span>
+  <span style="--x:72%;--d:20s;--s:.8"></span>
+  <span style="--x:88%;--d:26s;--s:1"></span>
+</div>
+
+<!-- Header ==================================================== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="EmeraldCraft home">
+      <span class="brand-logo">
+        <svg width="34" height="34"><use href="#i-emerald"/></svg>
+      </span>
+      <span class="brand-name">
+        <strong>Emerald</strong><span>Craft</span>
+      </span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#packages">Ranks</a>
+      <a href="#crates">Crates</a>
+      <a href="#leaderboard">Top Donators</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="ip-pill" data-copy="play.emeraldcraft.gg" type="button" title="Copy server IP">
+        <svg width="16" height="16"><use href="#i-copy"/></svg>
+        <span>play.emeraldcraft.gg</span>
+      </button>
+      <button class="btn-cart" id="cartButton" type="button" aria-label="Open cart">
+        <svg width="20" height="20"><use href="#i-cart"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero ===================================================== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        Server online · <strong id="heroPlayerCount">387</strong> playing now
+      </span>
+      <h1>
+        Support the realm. <br/>
+        <span class="grad">Unlock legendary perks.</span>
+      </h1>
+      <p class="lede">
+        EmeraldCraft is a hand-crafted Minecraft network built by a tiny team
+        and a giant community. Donations keep the lights on, pay the artists,
+        and unlock cosmetics, kits and ranks that make your world yours.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#packages">
+          <svg width="18" height="18"><use href="#i-pickaxe"/></svg>
+          Browse Ranks
+        </a>
+        <a class="btn btn-ghost" href="#how-it-works">
+          How it works
+          <svg width="16" height="16"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+
+      <ul class="hero-stats">
+        <li>
+          <strong>12,400+</strong>
+          <span>happy players</span>
+        </li>
+        <li>
+          <strong>99.98%</strong>
+          <span>uptime</span>
+        </li>
+        <li>
+          <strong>&lt; 60s</strong>
+          <span>perk delivery</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hero illustration: layered SVG art of a "diamond block" floating
+         above a tiny grass-tile platform. All hand-drawn, no images. -->
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-art-glow"></div>
+      <svg class="hero-art-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grass-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7fd06a"/><stop offset="1" stop-color="#3f8a3a"/>
+          </linearGradient>
+          <linearGradient id="grass-side" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8a6a3a"/><stop offset="1" stop-color="#4d3a1f"/>
+          </linearGradient>
+          <linearGradient id="dia-block-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#a8f3fb"/><stop offset="1" stop-color="#5ad6e3"/>
+          </linearGradient>
+          <linearGradient id="dia-block-left" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3fb6c8"/><stop offset="1" stop-color="#1d6a78"/>
+          </linearGradient>
+          <linearGradient id="dia-block-right" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7ce0eb"/><stop offset="1" stop-color="#2e8da0"/>
+          </linearGradient>
+          <radialGradient id="halo" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#7bf2d0" stop-opacity=".7"/>
+            <stop offset="1" stop-color="#7bf2d0" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <circle cx="180" cy="160" r="140" fill="url(#halo)"/>
+
+        <!-- Floating diamond block (isometric) -->
+        <g class="float-block">
+          <!-- top -->
+          <polygon points="180,60 270,105 180,150 90,105" fill="url(#dia-block-top)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round"/>
+          <!-- left -->
+          <polygon points="90,105 180,150 180,240 90,195" fill="url(#dia-block-left)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round"/>
+          <!-- right -->
+          <polygon points="270,105 180,150 180,240 270,195" fill="url(#dia-block-right)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round"/>
+          <!-- diamond facets on top -->
+          <g opacity=".8">
+            <polygon points="180,90 220,110 180,130 140,110" fill="#ffffff" opacity=".5"/>
+            <polygon points="155,118 180,131 180,150 140,128" fill="#0a1a14" opacity=".15"/>
+            <polygon points="205,118 180,131 180,150 220,128" fill="#0a1a14" opacity=".25"/>
+          </g>
+          <!-- studs / pixel highlights -->
+          <rect x="100" y="115" width="10" height="10" fill="#ffffff" opacity=".4"/>
+          <rect x="250" y="115" width="10" height="10" fill="#ffffff" opacity=".25"/>
+          <rect x="105" y="180" width="8" height="8" fill="#ffffff" opacity=".2"/>
+          <rect x="255" y="180" width="8" height="8" fill="#ffffff" opacity=".15"/>
+        </g>
+
+        <!-- Grass platform below -->
+        <g class="platform" transform="translate(0,40)">
+          <polygon points="60,260 180,320 300,260 180,200" fill="url(#grass-top)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round"/>
+          <polygon points="60,260 180,320 180,360 60,300" fill="url(#grass-side)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round"/>
+          <polygon points="300,260 180,320 180,360 300,300" fill="url(#grass-side)" stroke="#0a1a14" stroke-width="3" stroke-linejoin="round" opacity=".85"/>
+          <!-- grass tufts -->
+          <rect x="120" y="240" width="6" height="6" fill="#9fea7e"/>
+          <rect x="200" y="248" width="6" height="6" fill="#9fea7e"/>
+          <rect x="240" y="232" width="6" height="6" fill="#9fea7e"/>
+        </g>
+
+        <!-- Sparkles -->
+        <g class="sparkles">
+          <circle cx="80" cy="80" r="3" fill="#fff"/>
+          <circle cx="290" cy="60" r="2" fill="#fff"/>
+          <circle cx="320" cy="160" r="3" fill="#fff"/>
+          <circle cx="50" cy="200" r="2" fill="#fff"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Server status strip ====================================== -->
+<section class="status-strip">
+  <div class="container status-grid">
+    <div class="status-item">
+      <span class="status-label"><svg width="16" height="16"><use href="#i-globe"/></svg> Server</span>
+      <strong id="statusHost">play.emeraldcraft.gg</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Version</span>
+      <strong id="statusVersion">1.21.4 · Java &amp; Bedrock</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Players</span>
+      <strong><span id="statusPlayers">387</span> / 1000</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Region</span>
+      <strong>EU · NA · APAC</strong>
+    </div>
+  </div>
+</section>
+
+<!-- How it works ============================================= -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <header class="section-head">
+      <span class="kicker">How it works</span>
+      <h2>From checkout to in-game — in under a minute.</h2>
+    </header>
+
+    <ol class="how-steps">
+      <li>
+        <span class="step-num">01</span>
+        <h3>Pick your perks</h3>
+        <p>Choose a rank, mystery crate, or build your own bundle. Cancel any time, no subscriptions.</p>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <h3>Enter your Minecraft name</h3>
+        <p>Just your in-game name and a contact email — no password, ever. We never ask for your account.</p>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <h3>Hop in the server</h3>
+        <p>Perks are unlocked automatically the next time you log in. Run <code>/perks</code> to see what's new.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Packages ================================================ -->
+<section class="packages" id="packages">
+  <div class="container">
+    <header class="section-head">
+      <span class="kicker">Donation ranks</span>
+      <h2>Six tiers. Endless ways to play.</h2>
+      <p class="section-sub">
+        Every rank unlocks perks designed by the community team. Choose what fits your style — there are no pay-to-win advantages, just cosmetics, conveniences and a louder voice in our roadmap.
+      </p>
+    </header>
+
+    <div class="packages-grid" id="packagesGrid">
+      <!-- Cards rendered by JS -->
+      <div class="packages-loading">Loading ranks…</div>
+    </div>
+  </div>
+</section>
+
+<!-- Mystery Crates =========================================== -->
+<section class="crates" id="crates">
+  <div class="container">
+    <header class="section-head">
+      <span class="kicker">Mystery crates</span>
+      <h2>Crack a crate. Surprise yourself.</h2>
+      <p class="section-sub">
+        Each crate is a curated loot table built by our gameplay team. Top prize chances are published in-game — fully transparent.
+      </p>
+    </header>
+
+    <div class="crates-grid" id="cratesGrid"></div>
+  </div>
+</section>
+
+<!-- Leaderboard & Recent ====================================== -->
+<section class="board" id="leaderboard">
+  <div class="container board-grid">
+    <div class="board-card">
+      <header class="board-head">
+        <span class="kicker">Top donators · this month</span>
+        <h2>Hall of Heroes</h2>
+      </header>
+      <ol class="board-list" id="leaderboardList"></ol>
+    </div>
+
+    <aside class="board-side">
+      <div class="board-card recent">
+        <header class="board-head">
+          <span class="kicker">Live feed</span>
+          <h3>Recent purchases</h3>
+        </header>
+        <ul class="recent-list" id="recentList"></ul>
+      </div>
+
+      <div class="board-card discord">
+        <svg width="36" height="36"><use href="#i-discord"/></svg>
+        <h3>Join 8,400 players on Discord</h3>
+        <p>Get patch notes, vote on features, and meet the team.</p>
+        <a class="btn btn-primary" href="#" onclick="return false">
+          Open Discord
+          <svg width="16" height="16"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Why donate =============================================== -->
+<section class="why">
+  <div class="container why-grid">
+    <div class="why-card">
+      <span class="why-icon shield"><svg width="24" height="24"><use href="#i-shield"/></svg></span>
+      <h3>No pay-to-win, ever</h3>
+      <p>Perks are cosmetic and convenience-based. Skill still wins fights, and that's how it should be.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon leaf"><svg width="24" height="24"><use href="#i-leaf"/></svg></span>
+      <h3>1% of revenue planted</h3>
+      <p>Every donation plants a real tree through our partner. Watch the forest grow each month.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon bolt"><svg width="24" height="24"><use href="#i-bolt"/></svg></span>
+      <h3>Instant delivery</h3>
+      <p>Perks land in-game within 60 seconds. If anything breaks, our staff refund within 24 hours.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon crown"><svg width="24" height="24"><use href="#i-crown"/></svg></span>
+      <h3>Community-led roadmap</h3>
+      <p>Donators vote on the next major update — minigames, biomes, even mob mechanics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ===================================================== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <header class="section-head">
+      <span class="kicker">FAQ</span>
+      <h2>Questions, answered.</h2>
+    </header>
+
+    <div class="faq-list">
+      <details>
+        <summary>How quickly do I get my rank?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>Most perks unlock within 60 seconds. If you're online during checkout you'll see a chat broadcast — otherwise everything is waiting at <code>/perks</code> on your next login.</p>
+      </details>
+      <details>
+        <summary>Is this pay-to-win?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>No. We only sell cosmetics, conveniences (extra homes, vaults, fly in lobby) and supporter cosmetics. PvP gear and stats are identical for every player.</p>
+      </details>
+      <details>
+        <summary>Can I gift a rank to a friend?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>Yes — at checkout, enter their Minecraft username instead of yours and add a note. They'll get a chat message thanking you when they log in.</p>
+      </details>
+      <details>
+        <summary>What payment methods do you accept?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>Visa, Mastercard, AmEx, PayPal, Apple Pay, Google Pay, and major cryptocurrencies (BTC, ETH, USDC). All processed by PCI-compliant providers — we never see your card details.</p>
+      </details>
+      <details>
+        <summary>What's your refund policy?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>Donations are non-refundable in principle (they support the server), but we'll always refund duplicate charges, accidental purchases reported within 7 days, and missing perks that we can't deliver.</p>
+      </details>
+      <details>
+        <summary>Do you ever ask for my Minecraft password?
+          <svg width="16" height="16"><use href="#i-plus"/></svg>
+        </summary>
+        <p>Never. We only need your in-game username to attach perks to your account. Anyone asking for your password is a scammer — please report them in <code>#report</code> on Discord.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA =============================================== -->
+<section class="cta-final">
+  <div class="container cta-inner">
+    <div class="cta-art" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cta-em" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7bf2a4"/><stop offset="1" stop-color="#1f7a44"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 60l30-30h60l30 30v80l-30 30H70l-30-30z" fill="url(#cta-em)" stroke="#0a1a14" stroke-width="4"/>
+        <path d="M70 60L60 90l10 50h60l10-50-10-30z" fill="rgba(0,0,0,.2)"/>
+      </svg>
+    </div>
+    <div class="cta-text">
+      <h2>Ready to join the realm?</h2>
+      <p>Add <code>play.emeraldcraft.gg</code> to your Minecraft client and jump in. Pick a rank when you're ready — there's no pressure.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary" data-copy="play.emeraldcraft.gg" type="button">
+          <svg width="16" height="16"><use href="#i-copy"/></svg>
+          Copy Server IP
+        </button>
+        <a class="btn btn-ghost" href="#packages">
+          See ranks
+          <svg width="14" height="14"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer ==================================================== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="#top">
+        <span class="brand-logo">
+          <svg width="28" height="28"><use href="#i-emerald"/></svg>
+        </span>
+        <span class="brand-name"><strong>Emerald</strong><span>Craft</span></span>
+      </a>
+      <p class="muted footer-blurb">
+        Not affiliated with Mojang AB or Microsoft. Minecraft is a trademark of Mojang AB.
+      </p>
+    </div>
+    <div>
+      <h4>Play</h4>
+      <ul>
+        <li><a href="#packages">Ranks</a></li>
+        <li><a href="#crates">Crates</a></li>
+        <li><a href="#leaderboard">Leaderboard</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#" onclick="return false">Contact staff</a></li>
+        <li><a href="#" onclick="return false">Refund policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#" onclick="return false">Terms of service</a></li>
+        <li><a href="#" onclick="return false">Privacy policy</a></li>
+        <li><a href="#" onclick="return false">Cookie settings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 EmeraldCraft Network · Built with ⛏ by the community.</span>
+  </div>
+</footer>
+
+<!-- Cart drawer ================================================ -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close-cart></div>
+  <div class="drawer-panel" role="dialog" aria-label="Shopping cart">
+    <header class="drawer-head">
+      <h3>Your cart</h3>
+      <button class="icon-btn" data-close-cart aria-label="Close cart">
+        <svg width="18" height="18"><use href="#i-close"/></svg>
+      </button>
+    </header>
+
+    <ul class="cart-items" id="cartItems"></ul>
+    <p class="cart-empty" id="cartEmpty">Your cart is empty — pick a rank or crate above to get started.</p>
+
+    <div class="cart-totals">
+      <div><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+      <div class="muted small"><span>Taxes calculated at checkout</span></div>
+    </div>
+
+    <button class="btn btn-primary btn-full" id="checkoutBtn" disabled>
+      Checkout
+      <svg width="16" height="16"><use href="#i-arrow"/></svg>
+    </button>
+  </div>
+</aside>
+
+<!-- Checkout modal ============================================= -->
+<div class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-panel" role="dialog" aria-label="Checkout">
+    <header class="modal-head">
+      <h3>Complete your donation</h3>
+      <button class="icon-btn" data-close-modal aria-label="Close">
+        <svg width="18" height="18"><use href="#i-close"/></svg>
+      </button>
+    </header>
+
+    <form id="checkoutForm" novalidate>
+      <label class="field">
+        <span>Minecraft username</span>
+        <input type="text" name="username" autocomplete="off" maxlength="16" placeholder="Steve_McBlocks" required />
+        <em class="hint">3-16 characters, letters, numbers, underscore.</em>
+      </label>
+
+      <label class="field">
+        <span>Contact email</span>
+        <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+        <em class="hint">For receipt and order updates. We never share it.</em>
+      </label>
+
+      <fieldset class="field">
+        <legend>Payment method</legend>
+        <div class="pay-options">
+          <label><input type="radio" name="paymentMethod" value="card" checked /><span><svg width="18" height="18"><use href="#i-card"/></svg> Card</span></label>
+          <label><input type="radio" name="paymentMethod" value="paypal" /><span><svg width="18" height="18"><use href="#i-paypal"/></svg> PayPal</span></label>
+          <label><input type="radio" name="paymentMethod" value="crypto" /><span><svg width="18" height="18"><use href="#i-crypto"/></svg> Crypto</span></label>
+        </div>
+      </fieldset>
+
+      <div class="modal-summary" id="modalSummary"></div>
+
+      <p class="form-error" id="formError" hidden></p>
+
+      <button type="submit" class="btn btn-primary btn-full">
+        Donate <span id="modalTotal">$0.00</span>
+      </button>
+      <p class="muted small terms">By donating you agree to our Terms. Donations support the EmeraldCraft network and are non-refundable except as described in our policy.</p>
+    </form>
+
+    <div class="modal-success" id="modalSuccess" hidden>
+      <span class="success-badge">
+        <svg width="28" height="28"><use href="#i-check"/></svg>
+      </span>
+      <h3>Thanks for supporting EmeraldCraft!</h3>
+      <p id="successMessage"></p>
+      <p class="muted small">Order ID: <code id="successOrderId"></code></p>
+      <button class="btn btn-primary btn-full" data-close-modal>Back to the store</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast =================================================== -->
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="/js/app.js" defer></script>
+</body>
+</html>
